@@ -1,0 +1,73 @@
+package Password;
+import java.util.Random;
+class PasswordGenerator 
+{
+   private String upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   private String lower="abcdefghijklmnopqrstuvwxyz";
+   private String num="0123456789";
+   private String sp_char="@#$&*_";
+  
+   
+   public void receiveRequest(char ch2,int len)
+   {
+	 if(ch2=='y'||ch2=='Y')
+	 {
+		 String combination=upper+lower+num+sp_char;
+		 char[] pass=generatePassword(combination,len);
+		 
+		 System.out.println("Generated Password is : ");
+		System.out.println(pass);
+	 }
+	 
+	 if(ch2=='n'||ch2=='N')
+	 {
+		 String combination=upper+sp_char+num;
+		 char[] pass=generatePassword(combination,len);
+		 System.out.println("Generated Password is : ");
+		 System.out.println("-------------------------");
+		 System.out.println(pass);
+		
+	 }
+	
+   }
+    
+   public  char[] generatePassword(String combination,int len)
+   {
+	   char[] password=new char[len];
+	   Random r = new Random();
+	   
+	   for(int i=0;i<len;i++)
+	   {
+		   password[i]=combination.charAt(r.nextInt(combination.length()));
+	   }
+	  return password;
+   }
+}
+
+public class PasswordMainClass {
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc=new Scanner(System.in);
+		
+		
+		System.out.println("Enter Y for yes and N for no.....");
+		 System.out.println("-------------------------");
+		 System.out.print("\n");
+			System.out.println("Do you want Lower case character in Password ? ");
+			char ch2 = sc.next().charAt(0);
+		 
+		
+		 System.out.println("Enter number of characters you want in Password...");
+		 int len=sc.nextInt();
+	     
+		 System.out.println("-------------------------");
+		
+		PasswordGenerator p = new PasswordGenerator();
+		
+		p.receiveRequest(ch2, len);
+		
+	}
+
+}
