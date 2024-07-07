@@ -1,0 +1,185 @@
+
+
+
+   // Write a program to sort array in ascending order.
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+                                           Method 1: Comparing with alternate values :
+                                        --------------------------------------------------
+
+import java.util.Arrays;
+class ArraySort
+{
+    public static int[] sortArray(int []arr)
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=i+1;j<arr.length;j++)
+            {
+                if(arr[i]>arr[j])
+                {
+                  int temp=arr[i];
+                  arr[i]=arr[j];
+                  arr[j]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+    public static void main(String[] args)
+    {
+        int []arr={10,60,40};
+        System.out.println("Before sorting : "+Arrays.toString(arr));
+        System.out.println("");
+        int s[]=ArraySort.sortArray(arr);
+        System.out.println("After sorting : "+Arrays.toString(s));
+    }
+}
+
+
+
+
+OUTPUT :
+----------
+                  Before sorting : [10, 60, 40]
+
+                  After sorting : [10, 40, 60]
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+                                                
+                                                     Method 2: Comparing with itself values :
+                                                 -----------------------------------------------
+
+
+
+  import java.util.Arrays;
+class ArraySort 
+{
+    public static int[] sortArray(int []arr)
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=0;j<(arr.length)-1;j++)
+            {
+                if(arr[i]<arr[j])
+                {
+                  int temp=arr[i];
+                  arr[i]=arr[j];
+                  arr[j]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+    public static void main(String[] args) 
+    {
+         int []arr={30,20,80};
+         System.out.println("Before sorting : "+Arrays.toString(arr));
+         System.out.println("");
+         int[] s= ArraySort.sortArray(arr);
+         System.out.println("After sorting : "+Arrays.toString(s));
+    }
+}
+
+
+
+OUTPUT :
+----------
+                  Before sorting : [30, 20, 80]
+
+                  After sorting : [20, 30, 80]
+
+______________________________________________________________________________________________________________________________________________________________________
+
+                                                        Method 3: Bubble Sort :
+                                                     -----------------------------
+                                        
+
+import java.util.Arrays;
+public class ArraySort
+{
+    public static int[] sortArray(int[] arr)
+    {
+        for(int i=0;i<arr.length-1;i++)
+        {
+            int flag=0;
+            for(int j=0;j<arr.length-1-i;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                  int temp=arr[j];
+                  arr[j]=arr[j+1];
+                  arr[j+1]=temp;
+                  flag=1;
+                }
+                
+            }
+                if(flag==0)
+                {
+                   break;
+                }
+            
+        }
+        return arr;
+    }
+    public static void main(String []args)
+    {
+        int arr[]={30,70,40};
+         System.out.println("Before sorting : "+Arrays.toString(arr));
+         System.out.println("");
+         int[] s= ArraySort.sortArray(arr);
+         System.out.println("After sorting : "+Arrays.toString(s));
+    }
+}
+
+
+
+
+OUTPUT :
+----------
+                  Before sorting : [30, 70, 40]
+
+                  After sorting : [30, 40, 70]
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+                                                        
+                                                        Method 4: Using pre defined method :
+                                                     -------------------------------------------
+                                        
+
+
+import java.util.Arrays;
+
+public class ArraySort
+{  
+  public static void main(String[] args) 
+  {  
+  int [] arr= {33 , 18, 25, 11, 8};  
+  Arrays.sort(arr);  
+  System.out.println(Arrays.toString(arr));  
+}  
+}  
+
+
+OUTPUT :
+----------
+                  Before sorting : [8, 11, 18, 25, 33]
+
+                  After sorting : [8, 11, 18, 25, 33]
+
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
