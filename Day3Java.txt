@@ -1,0 +1,557 @@
+
+
+                                                                   Technical Programs on Array : 
+                                                                  ________________________________  
+ 
+      Que-1)   Given an array of integers, return true if 15 appears as either the first or last element in the array.  
+               The array will be length 1 or more. 
+
+
+
+import java.util.Arrays;
+public class Main
+{  
+    public static boolean check(int []arr)
+    {
+        if(arr.length>=1)
+        {
+          if(arr[0]==15 || arr[arr.length-1]==0) 
+          {
+             return true;
+          }
+         
+        } 
+         return false;
+    }
+  public static void main(String[] args) 
+  {  
+      
+     int [] arr= {33 , 18, 25, 11, 8};  
+     boolean result=Main.check(arr);
+     System.out.println(result);
+  }
+}  
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+        Que-2)   Given an array of integers, return true if the array length is 1 or more,and the first element and the   
+                 last elements both are equal.  
+
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size=sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length-1;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    public static boolean check(int []arr)
+    {
+        if(arr.length>=1|| (arr[0]==arr[arr.length-1]))
+        {
+          return true;
+        } 
+         return false;
+    }
+  public static void main(String[] args) 
+  {  
+      
+    int []arr= Main.takeArrayInput(); 
+     boolean result=Main.check(arr);
+     System.out.println(result);
+  }
+}  
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+               
+           Que-3)   Given 2 arrays of integers, a and b, return true if they have the same first element or they have the   
+                    same last element. Both arrays will be length 1 or more.  
+
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size=sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length-1;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    public static boolean check(int []arr,int []arr1)
+    {
+        if((arr.length>=1 && arr1.length>=1 )|| (arr[0]==arr1[0])         ||( arr[arr.length-1]== arr1[arr.length-1]))
+        {
+          return true;
+        } 
+         return false;
+    }
+  public static void main(String[] args) 
+  {  
+      
+    int []arr= Main.takeArrayInput();
+    int []arr1=Main.takeArrayInput();
+     boolean result=Main.check(arr,arr1);
+     System.out.println(result);
+  }
+} 
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+     Que-4)  Write a program to Reverse an array.  
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size = sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    public static int[] reverseArray(int []arr)
+    {
+        int i=0;
+        int j=arr.length-1;
+        
+        if(arr.length>=1)         
+        {
+            while(i<j)
+            {
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                i++;
+                j--;
+            }
+        } 
+        return arr; 
+    }
+  public static void main(String[] args) 
+  {  
+      
+       int []arr= Main.takeArrayInput();
+       System.out.println("Before Reversing an array : "+Arrays.toString(arr));
+   
+       System.out.println("After Reversing an array : "+Arrays.toString( Main.reverseArray(arr)));
+  }
+}  
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+     Que-5)   Write a program to figure out which is larger element in array and   
+              return the largest element with the help of the method ?  
+
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size = sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    
+    public static int findLargestElement(int []arr)
+    {
+        int largest=arr[0];
+        int i=1;
+        int j=i+1;
+        
+        if(arr.length>=1)         
+        {
+           for(i=1;i<arr.length;i++)
+           {
+               for(j=i+1;j<arr.length;j++)
+               {
+                   if(arr[i]>largest)
+                   {
+                       largest=arr[i];
+                   }
+                   if(arr[j]>largest)
+                   {
+                       largest=arr[j];
+                   }
+               }
+           }
+        } 
+        return largest; 
+    }
+  public static void main(String[] args) 
+  {  
+      
+       int []arr= Main.takeArrayInput();
+       System.out.println("Original an array : "+Arrays.toString(arr));
+   
+       System.out.println("Largest element : "+ Main.findLargestElement(arr));
+  }
+}  
+
+
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+
+       Que-6)    Write a program to figure out which is larger, the first or last element in the array,  
+                 and set all the other elements to be that value. Return the changed array.  
+
+
+ 
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size = sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    
+    public static int findLargestElement(int []arr)
+    {
+        int largest=arr[0];
+              
+       if(arr.length>=1)         
+        {
+           if(arr[arr.length-1]>largest)
+           {
+               largest=arr[arr.length-1];
+           }
+           for(int i=0;i<arr.length;i++)
+           {
+               arr[i]=largest;
+           }
+        } 
+         // System.out.println(" an array : "+Arrays.toString(arr));
+        return largest; 
+    }
+  public static void main(String[] args) 
+  {  
+      
+       int []arr= Main.takeArrayInput();
+       System.out.println("Original array : "+Arrays.toString(arr));
+   
+       System.out.println("Largest element from first and last element : "+ Main.findLargestElement(arr));
+        System.out.println(" After modifying an array : "+Arrays.toString(arr));
+  }
+}  
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+      Que-7)    Given an array of integers, return the sum of the first 2 elements in the array.  
+                If the array length is less than 2, just sum up the elements that exist,  
+                return 0 if the array is having length 0.  
+
+
+  
+  import java.util.*;
+
+public class Main {  
+    
+    public static int[] takeArrayInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of array");
+        int size = sc.nextInt();
+         
+        int[] arr = new int[size];
+         
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Enter element at index " + i);
+            arr[i] = sc.nextInt();
+        }
+        
+        return arr;
+    }
+    
+    public static int sumOfFirstTwo(int[] arr) {
+        int sum = 0;
+        
+        if (arr.length >= 2) {
+            sum = arr[0] + arr[1];
+        } else if (arr.length == 1) {
+            sum = arr[0];
+        } else {
+            sum = 0; // Handle case where array is empty
+        }
+        
+        return sum;
+    }
+    
+    public static void main(String[] args) {  
+        int[] arr = Main.takeArrayInput();
+        System.out.println("Original array : " + Arrays.toString(arr));
+        
+        int sum = Main.sumOfFirstTwo(arr);
+        System.out.println("Sum of first two elements : " + sum);
+    }
+}
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+         Que-8)    Given 2 integer arrays, a and b, each length is 3, return a new array length 2  
+                   containing their middle elements.  
+
+
+
+  
+  import java.util.*;
+
+public class Main 
+{  
+    
+    public static int[] takeArrayInput() 
+    {
+        Scanner sc = new Scanner(System.in);
+       
+        int[] arr = new int[3];
+         
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.println("Enter element at index " + i);
+            arr[i] = sc.nextInt();
+        }
+        
+        return arr;
+    }
+
+     public static int [] returnNewArray(int[] arr,int []arr1)
+     {
+         return int[] a = new int[] {arr[1],arr1[1]} ;
+     }
+     
+      public static void main(String[] args) 
+      {  
+        int[] arr = Main.takeArrayInput();
+        int[] arr1 = Main.takeArrayInput();
+        System.out.println("Original array : " + Arrays.toString(arr));
+        int[] a = returnNewArray(arr,arr1);
+         System.out.println("New array : " + Arrays.toString(a));
+      } 
+}
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+   
+      Que-9)    Given an array of integers length 3, return an array with the elements   
+                "rotated left" so {1, 2, 3} will become  {2, 3, 1}.  
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        // Example usage:
+        int[] arr1 = {1, 2, 3};
+        int[] rotated1 = rotateLeft3(arr1);
+        System.out.println("Original array: " + arrayToString(arr1));
+        System.out.println("Rotated left array: " + arrayToString(rotated1));
+        
+        int[] arr2 = {5, 11, 9};
+        int[] rotated2 = rotateLeft3(arr2);
+        System.out.println("Original array: " + arrayToString(arr2));
+        System.out.println("Rotated left array: " + arrayToString(rotated2));
+    }
+
+    public static int[] rotateLeft3(int[] nums) {
+        int[] rotated = new int[3]; // Create a new array to store rotated elements
+        rotated[0] = nums[1]; // Move nums[1] to the first position of rotated
+        rotated[1] = nums[2]; // Move nums[2] to the second position of rotated
+        rotated[2] = nums[0]; // Move nums[0] to the third position of rotated
+        return rotated;
+    }
+    
+    public static String arrayToString(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]);
+            if (i < arr.length - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+}
+
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+
+     Que-10)    Given an array of integers, return a new array length 2 containing the first and  
+                last elements from the original array. The original array length  will be 1 or more 
+
+
+
+import java.util.*;
+public class Main
+{  
+    public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size = sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    
+    public static int[] returnNewArray(int[] arr)
+    {
+        return int[] a = new int[] { arr[0],arr[arr.length-1]};
+    }
+    
+     public static void main(String[] args) 
+     {  
+        int[] arr = Main.takeArrayInput();
+        System.out.println("Original array : " + Arrays.toString(arr));
+        
+         System.out.println("New Array : "+Arrays.toString(Main. returnNewArray(arr)));
+     }
+}
+
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+
+  
+         Que-11)    Given an integer array length 2,return true if it contains a number 2 or 3.  
+
+
+  
+
+     import java.util.*;
+    public class Main
+    {
+     public static int[] takeArrayInput()
+    {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int size = sc.nextInt();
+         
+         int []arr=new int[size];
+         
+         for(int i=0;i<arr.length;i++)
+         {
+         System.out.println("Enter " +i+ " array element");
+         arr[i]=sc.nextInt();
+         }
+        return arr;
+    }
+    
+   public static void main(String[] arr )
+   {
+    int[]  b=  Main. takeArrayInput();
+     boolean a=Main. has23(b);
+     System.out.println(a);
+   }
+   public static boolean has23(int[] nums)
+   {
+        // Check if 2 or 3 is present in the array
+        for (int num : nums)
+        {
+            if (num == 2 || num == 3) 
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
