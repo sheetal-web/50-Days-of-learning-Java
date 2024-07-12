@@ -1,0 +1,81 @@
+
+                                                              Loan Management
+                                                          ________________________
+
+//  Program to calculate Monthly amount to pay 
+
+
+package bank;
+import java.util.Scanner;
+public class LoanELC {
+
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter principle amount");
+		 double principle=sc.nextDouble();
+		 
+		 System.out.println("Enter interest Rate");
+		 double in_rate=sc.nextDouble();
+		 
+		 System.out.println("Enter duration (months)");
+		 int durationMonths=sc.nextInt();
+		 
+		 LoanBLC a = new LoanBLC(principle,in_rate,durationMonths);
+		 
+		double mon_amt= a.calculateMonthlyPayment();
+		System.out.println("Monthly amount to pay : "+mon_amt);
+		
+		System.out.println("Principle amount : "+a.getPrincipal());
+	}
+
+}
+
+_____________________________________________________________________________________________________________________________________________________________________
+
+
+package bank;
+
+public class LoanBLC
+{
+	private double principle;
+	private double in_rate;
+	private int duration_month;
+	
+	public LoanBLC( double principle, double in_rate,int duration_month)
+	{
+		if(principle==0||in_rate==0||duration_month==0)
+		{
+			System.out.println("ERROR ----  Value cannot be 0");
+			return;
+		}
+		else
+		{
+		   this.principle=principle;
+		   this. in_rate= in_rate;
+		   this.duration_month=duration_month;
+		}
+	}
+	
+	public double calculateMonthlyPayment()
+	{
+		return 0.0;
+	}
+	
+	public double  getPrincipal()
+	{
+		return this.principle;
+	}
+	
+	public double getInterestRate()
+
+	{
+		return this.in_rate;
+	}
+	
+	public int getDurationMonths()
+	{
+		return this.duration_month;
+	}
+}
